@@ -289,11 +289,6 @@ serviceCards.forEach((card) => {
   });
 });
 
-const interactiveTargets = document.querySelectorAll('.method-step, .principle-card, .review-card');
-interactiveTargets.forEach((card) => {
-  card.addEventListener('click', () => triggerSelectionAnimation(card));
-});
-
 const leadModal = document.getElementById('lead-qualifier');
 const leadClose = document.querySelector('.lead-close');
 const leadTriggers = document.querySelectorAll('.lead-trigger');
