@@ -203,6 +203,22 @@ if (navToggle && siteNav) {
   });
 }
 
+const serviceCardLinks = document.querySelectorAll('.service-card a[href]');
+serviceCardLinks.forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('#')) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const paintColor = '#F4C542';
+    runLiquidPaintTransition(paintColor, () => {
+      window.location.href = href;
+    });
+  });
+});
+
 const interactiveTargets = document.querySelectorAll('.service-card, .price-card, .method-step, .principle-card, .review-card');
 interactiveTargets.forEach((card) => {
   card.addEventListener('click', () => triggerSelectionAnimation(card));
