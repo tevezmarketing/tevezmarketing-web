@@ -150,27 +150,39 @@ body.modal-open {
 
 @media (max-width: 700px) {
   .tevez-opening {
-    padding: 5vw 5vw 6vw;
+    padding: 10vw 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .tevez-opening-title {
-    font-size: clamp(48px, 17vw, 120px);
-    line-height: 0.8;
-    letter-spacing: -0.06em;
+    font-size: clamp(42px, 15vw, 95px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    gap: 0.1em;
+    width: 100%;
+    text-align: left;
   }
 
   .tevez-opening-content {
-    padding: 52px 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .tevez-word {
-    white-space: nowrap;
+    white-space: normal;
+    word-break: break-word;
   }
 
   .tevez-side-mark {
-    right: -5vw;
-    top: 43%;
-    font-size: 65vw;
+    right: -2vw;
+    top: 50%;
+    font-size: 55vw;
+    opacity: 0.05;
   }
 }
 
