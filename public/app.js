@@ -203,23 +203,26 @@ if (navToggle && siteNav) {
   });
 }
 
-const serviceCardLinks = document.querySelectorAll('.service-card a[href]');
-serviceCardLinks.forEach((link) => {
-  link.addEventListener('click', (event) => {
-    const href = link.getAttribute('href');
+const serviceCards = document.querySelectorAll('.service-card');
+serviceCards.forEach((card) => {
+  card.addEventListener('click', (event) => {
+    const link = event.target.closest('a[href]');
+    const href = link ? link.getAttribute('href') : card.querySelector('a[href]')?.getAttribute('href');
+
     if (!href || href.startsWith('#')) return;
 
-    event.preventDefault();
-    event.stopPropagation();
+    if (link) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
 
-    const paintColor = '#F4C542';
-    runLiquidPaintTransition(paintColor, () => {
+    triggerSelectionAnimation(card, () => {
       window.location.href = href;
     });
   });
 });
 
-const interactiveTargets = document.querySelectorAll('.service-card, .price-card, .method-step, .principle-card, .review-card');
+const interactiveTargets = document.querySelectorAll('.price-card, .method-step, .principle-card, .review-card');
 interactiveTargets.forEach((card) => {
   card.addEventListener('click', () => triggerSelectionAnimation(card));
 });
