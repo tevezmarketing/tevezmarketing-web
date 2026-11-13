@@ -211,8 +211,12 @@ serviceCards.forEach((card) => {
   const href = link.getAttribute('href');
   if (!href || href.startsWith('#')) return;
 
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
+  card.addEventListener('click', (event) => {
+    const clickedLink = event.target.closest('a[href]');
+    if (clickedLink) {
+      event.preventDefault();
+    }
+
     event.stopPropagation();
 
     const targetUrl = href.startsWith('/') ? new URL(href, window.location.origin).toString() : href;
