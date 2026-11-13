@@ -205,19 +205,19 @@ if (navToggle && siteNav) {
 
 const serviceCards = document.querySelectorAll('.service-card');
 serviceCards.forEach((card) => {
-  card.addEventListener('click', (event) => {
-    const link = event.target.closest('a[href]');
-    const href = link ? link.getAttribute('href') : card.querySelector('a[href]')?.getAttribute('href');
+  const link = card.querySelector('a[href]');
+  if (!link) return;
 
-    if (!href || href.startsWith('#')) return;
+  const href = link.getAttribute('href');
+  if (!href || href.startsWith('#')) return;
 
-    if (link) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
+    const targetUrl = href.startsWith('/') ? new URL(href, window.location.origin).toString() : href;
     triggerSelectionAnimation(card, () => {
-      window.location.href = href;
+      window.location.assign(targetUrl);
     });
   });
 });
