@@ -17,6 +17,7 @@ if (openingHero) {
 
 let liquidAnimating = false;
 let pendingTheme = null;
+const PAINT_TRANSITION_MS = 1800;
 
 const themeMap = {
   charcoal: '#111111',
@@ -80,7 +81,7 @@ const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
   svg.appendChild(path);
   document.body.appendChild(svg);
 
-  const duration = 1800;
+  const duration = PAINT_TRANSITION_MS;
   const start = performance.now();
 
   const animate = (now) => {
@@ -123,7 +124,7 @@ const triggerSelectionAnimation = (element, onAfterAnimation = () => {}) => {
     onAfterAnimation();
   });
 
-  window.setTimeout(() => element.classList.remove('pulse-select'), 900);
+  window.setTimeout(() => element.classList.remove('pulse-select'), PAINT_TRANSITION_MS);
 };
 
 if (navToggle && siteNav) {

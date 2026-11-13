@@ -1874,7 +1874,7 @@ h1, h2, h3, h4, p {
 }
 
 .pulse-select {
-  animation: editorialPulse 0.8s ease;
+  animation: editorialPulse 1.1s ease;
 }
 
 .pulse-select::before,
@@ -1889,7 +1889,7 @@ h1, h2, h3, h4, p {
   background: var(--gold);
   transform-origin: left center;
   transform: scaleX(0);
-  animation: paintFill 0.72s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: paintFill 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
   z-index: 0;
 }
 
@@ -1902,7 +1902,7 @@ h1, h2, h3, h4, p {
   clip-path: polygon(0 100%, 12% 0, 30% 26%, 52% 0, 70% 24%, 100% 0, 100% 100%);
   transform: translateY(10px);
   opacity: 0;
-  animation: paintDrip 0.72s ease forwards 0.12s;
+  animation: paintDrip 1.1s ease forwards 0.12s;
   z-index: 1;
 }
 
