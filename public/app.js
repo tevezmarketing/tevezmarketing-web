@@ -64,7 +64,7 @@ const createWavePath = (width, height, progress) => {
   return path;
 };
 
-const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
+const runLiquidPaintTransition = (paintColor, onComplete = () => {}, earlyCallback = null) => {
   if (!paintColor) {
     onComplete();
     return;
@@ -76,6 +76,7 @@ const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
   }
 
   liquidAnimating = true;
+  let earlyCallbackTriggered = false;
   const width = window.innerWidth;
   const height = window.innerHeight;
   const svgNS = 'http://www.w3.org/2000/svg';
@@ -96,6 +97,13 @@ const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
   const animate = (now) => {
     const elapsed = now - start;
     const progress = Math.min(elapsed / duration, 1);
+    
+    // Disparar callback temprano cuando la pantalla está mayormente cubierta (aprox 65%)
+    if (earlyCallback && progress >= 0.65 && !earlyCallbackTriggered) {
+      earlyCallbackTriggered = true;
+      earlyCallback();
+    }
+
     const eased = progress < 0.5
       ? 4 * progress * progress * progress
       : 1 - Math.pow(-2 * progress + 2, 3) / 2;
@@ -124,7 +132,7 @@ const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
   requestAnimationFrame(animate);
 };
 
-const triggerSelectionAnimation = (element, onAfterAnimation = () => {}) => {
+const triggerSelectionAnimation = (element, onAfterAnimation = () => {}, useEarlyRedirection = false) => {
   if (!element) return;
   document.querySelectorAll('.pulse-select').forEach((item) => item.classList.remove('pulse-select'));
   element.classList.remove('pulse-select');
@@ -134,10 +142,19 @@ const triggerSelectionAnimation = (element, onAfterAnimation = () => {}) => {
   const sourceTheme = element.closest('[data-theme]')?.dataset.theme || 'gold';
   const paintColor = themeMap[sourceTheme] || '#F4C542';
 
-  runLiquidPaintTransition(paintColor, () => {
-    applyTheme(sourceTheme);
-    onAfterAnimation();
-  });
+  if (useEarlyRedirection) {
+    runLiquidPaintTransition(paintColor, () => {
+      applyTheme(sourceTheme);
+    }, () => {
+      // Este es el earlyCallback
+      onAfterAnimation();
+    });
+  } else {
+    runLiquidPaintTransition(paintColor, () => {
+      applyTheme(sourceTheme);
+      onAfterAnimation();
+    });
+  }
 
   window.setTimeout(() => element.classList.remove('pulse-select'), PAINT_TRANSITION_MS);
 };
@@ -241,13 +258,19 @@ serviceCards.forEach((card) => {
   const href = link.getAttribute('href');
   if (!href || href.startsWith('#')) return;
 
-  link.addEventListener('click', (event) => {
+  // Hacer TODA la card clicable
+  card.style.cursor = 'pointer';
+  card.addEventListener('click', (event) => {
     const targetUrl = href.startsWith('/') ? new URL(href, window.location.origin).toString() : href;
-    event.preventDefault();
-    event.stopPropagation();
+    
+    // Evitar que el clic en el enlace se dispare dos veces si el usuario hace clic directamente en el <a>
+    if (event.target.tagName === 'A') {
+      event.preventDefault();
+    }
+    
     triggerSelectionAnimation(card, () => {
       window.location.assign(targetUrl);
-    });
+    }, true); // true activa la redirección anticipada (quirúrgica)
   });
 });
 
