@@ -211,15 +211,10 @@ serviceCards.forEach((card) => {
   const href = link.getAttribute('href');
   if (!href || href.startsWith('#')) return;
 
-  card.addEventListener('click', (event) => {
-    const clickedLink = event.target.closest('a[href]');
-    if (clickedLink) {
-      event.preventDefault();
-    }
-
-    event.stopPropagation();
-
+  link.addEventListener('click', (event) => {
     const targetUrl = href.startsWith('/') ? new URL(href, window.location.origin).toString() : href;
+    event.preventDefault();
+    event.stopPropagation();
     triggerSelectionAnimation(card, () => {
       window.location.assign(targetUrl);
     });
