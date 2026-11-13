@@ -30,6 +30,14 @@ const themeMap = {
   white: '#FFFFFF'
 };
 
+const prefetchPage = (url) => {
+  if (!url || url.startsWith('#') || url.includes('whatsapp') || document.querySelector(`link[rel="prefetch"][href="${url}"]`)) return;
+  const link = document.createElement('link');
+  link.rel = 'prefetch';
+  link.href = url;
+  document.head.appendChild(link);
+};
+
 const applyTheme = (theme) => {
   if (!theme) return;
   document.body.setAttribute('data-theme', theme);
@@ -213,6 +221,9 @@ if (navToggle && siteNav) {
       return;
     }
 
+    link.addEventListener('mouseenter', () => prefetchPage(href), { once: true });
+    link.addEventListener('focus', () => prefetchPage(href), { once: true });
+
     link.addEventListener('click', (event) => {
       const href = link.getAttribute('href');
       siteNav.classList.remove('is-open');
@@ -239,10 +250,12 @@ if (navToggle && siteNav) {
         return;
       }
 
-      if (isExternal) {
+      if (isExternal && !href.includes('whatsapp')) {
         event.preventDefault();
         const paintColor = '#F4C542';
         runLiquidPaintTransition(paintColor, () => {
+          window.location.href = href;
+        }, () => {
           window.location.href = href;
         });
       }
@@ -250,31 +263,33 @@ if (navToggle && siteNav) {
   });
 }
 
-const serviceCards = document.querySelectorAll('.service-card');
+const serviceCards = document.querySelectorAll('.service-card, .price-card');
 serviceCards.forEach((card) => {
   const link = card.querySelector('a[href]');
   if (!link) return;
 
   const href = link.getAttribute('href');
-  if (!href || href.startsWith('#')) return;
+  if (!href || href.startsWith('#') || href.includes('whatsapp')) return;
+
+  // Prefetch al acercar el mouse
+  card.addEventListener('mouseenter', () => prefetchPage(href), { once: true });
 
   // Hacer TODA la card clicable
   card.style.cursor = 'pointer';
   card.addEventListener('click', (event) => {
     const targetUrl = href.startsWith('/') ? new URL(href, window.location.origin).toString() : href;
     
-    // Evitar que el clic en el enlace se dispare dos veces si el usuario hace clic directamente en el <a>
     if (event.target.tagName === 'A') {
       event.preventDefault();
     }
     
     triggerSelectionAnimation(card, () => {
       window.location.assign(targetUrl);
-    }, true); // true activa la redirección anticipada (quirúrgica)
+    }, true); 
   });
 });
 
-const interactiveTargets = document.querySelectorAll('.price-card, .method-step, .principle-card, .review-card');
+const interactiveTargets = document.querySelectorAll('.method-step, .principle-card, .review-card');
 interactiveTargets.forEach((card) => {
   card.addEventListener('click', () => triggerSelectionAnimation(card));
 });
