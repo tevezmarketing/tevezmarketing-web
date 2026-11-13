@@ -167,6 +167,13 @@ if (navToggle && siteNav) {
   });
 
   siteNav.querySelectorAll('a').forEach((link) => {
+    const linkLabel = (link.textContent || '').trim().toLowerCase();
+    const isHeaderHomeLink = linkLabel === 'inicio' && link.closest('.site-nav');
+
+    if (isHeaderHomeLink) {
+      return;
+    }
+
     link.addEventListener('click', (event) => {
       const href = link.getAttribute('href');
       siteNav.classList.remove('is-open');
