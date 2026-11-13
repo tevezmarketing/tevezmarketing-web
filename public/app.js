@@ -17,6 +17,7 @@ if (openingHero) {
 
 let liquidAnimating = false;
 let pendingTheme = null;
+let queuedTransitionCallback = null;
 const PAINT_TRANSITION_MS = 1800;
 
 const themeMap = {
@@ -64,7 +65,15 @@ const createWavePath = (width, height, progress) => {
 };
 
 const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
-  if (liquidAnimating || !paintColor) return;
+  if (!paintColor) {
+    onComplete();
+    return;
+  }
+
+  if (liquidAnimating) {
+    queuedTransitionCallback = onComplete;
+    return;
+  }
 
   liquidAnimating = true;
   const width = window.innerWidth;
@@ -103,6 +112,12 @@ const runLiquidPaintTransition = (paintColor, onComplete = () => {}) => {
         pendingTheme = null;
       }
       onComplete();
+
+      if (queuedTransitionCallback) {
+        const nextCallback = queuedTransitionCallback;
+        queuedTransitionCallback = null;
+        nextCallback();
+      }
     }
   };
 
