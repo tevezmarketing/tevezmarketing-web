@@ -168,9 +168,16 @@ if (navToggle && siteNav) {
 
   siteNav.querySelectorAll('a').forEach((link) => {
     const linkLabel = (link.textContent || '').trim().toLowerCase();
-    const isHeaderHomeLink = linkLabel === 'inicio' && link.closest('.site-nav');
+    const href = link.getAttribute('href') || '';
+    const isHeaderHomeLink = linkLabel === 'inicio' && link.closest('.site-nav') && (
+      href === 'https://tevezmarketing.digital' ||
+      href === 'https://tevezmarketing.digital/' ||
+      href === '/' ||
+      href === ''
+    );
 
     if (isHeaderHomeLink) {
+      link.classList.add('home-nav-link');
       return;
     }
 

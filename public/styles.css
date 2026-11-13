@@ -1911,6 +1911,23 @@ h1, h2, h3, h4, p {
   z-index: 2;
 }
 
+.site-nav a[href="https://tevezmarketing.digital"],
+.site-nav a[href="https://tevezmarketing.digital/"],
+.site-nav a[href="/"] {
+  position: relative;
+}
+
+.site-nav a[href="https://tevezmarketing.digital"].pulse-select::before,
+.site-nav a[href="https://tevezmarketing.digital"].pulse-select::after,
+.site-nav a[href="https://tevezmarketing.digital/"].pulse-select::before,
+.site-nav a[href="https://tevezmarketing.digital/"].pulse-select::after,
+.site-nav a[href="/"].pulse-select::before,
+.site-nav a[href="/"].pulse-select::after {
+  content: none !important;
+  display: none !important;
+  animation: none !important;
+}
+
 @keyframes editorialPulse {
   0% {
     transform: translate(0, 0);
