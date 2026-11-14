@@ -3,6 +3,23 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
+const pushGtmEvent = (eventName, payload = {}) => {
+  const data = {
+    event: eventName,
+    page_path: window.location.pathname,
+    page_title: document.title,
+    ...payload
+  };
+
+  if (window.dataLayer) {
+    window.dataLayer.push(data);
+  }
+
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', eventName, payload);
+  }
+};
+
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
 const openingHero = document.getElementById('openingHero');
@@ -310,6 +327,10 @@ const openLeadModal = () => {
 leadTriggers.forEach((trigger) => {
   trigger.addEventListener('click', (event) => {
     event.preventDefault();
+    pushGtmEvent('cta_click', {
+      cta_text: (trigger.textContent || '').trim(),
+      cta_type: 'lead_trigger'
+    });
     openLeadModal();
   });
 });
@@ -346,6 +367,13 @@ if (leadForm) {
     const cityText = cityValue || 'no especificó ciudad';
     const safeName = nameValue || 'Cliente';
 
+    pushGtmEvent('lead_form_submit', {
+      intent: intentValue,
+      city: cityText,
+      customer_name: safeName,
+      source: 'lead_modal'
+    });
+
     const message = `Hola Tévez, ${intentText}. Soy de ${cityText} y mi nombre es ${safeName}. Quiero que me ayuden a definir la mejor opción para mi negocio.`;
     const whatsappUrl = `https://api.whatsapp.com/send/?phone=573170183313&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
 
@@ -353,6 +381,16 @@ if (leadForm) {
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   });
 }
+
+const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"], a[href*="whatsapp.com"]');
+whatsappLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    pushGtmEvent('whatsapp_click', {
+      link_text: (link.textContent || '').trim(),
+      destination: link.href
+    });
+  }, { passive: true });
+});
 
 const progressBar = document.querySelector('#scroll-progress');
 if (progressBar) {
