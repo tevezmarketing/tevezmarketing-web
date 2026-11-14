@@ -78,13 +78,13 @@ body.modal-open {
 .tevez-opening-title {
   display: flex;
   flex-direction: column;
-  gap: 0.06em;
+  gap: 0.12em;
   margin: 0;
   font-family: 'Barlow Condensed', 'Inter', sans-serif;
   font-weight: 900;
   font-size: clamp(52px, 12vw, 245px);
-  line-height: 0.78;
-  letter-spacing: -0.065em;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -823,8 +823,8 @@ h1, h2, h3, h4, p {
   max-width: 680px;
   margin-bottom: 18px;
   font-size: clamp(2.7rem, 5vw, 5.2rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--white);
 }
@@ -1137,8 +1137,8 @@ h1, h2, h3, h4, p {
   max-width: 780px;
   margin-bottom: 0;
   font-size: clamp(2.1rem, 3vw, 3.2rem);
-  line-height: 1.05;
-  letter-spacing: -0.06em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
 }
 
@@ -1252,7 +1252,8 @@ h1, h2, h3, h4, p {
 .price-card h3 {
   margin-bottom: 12px;
   font-size: 1.42rem;
-  letter-spacing: -0.04em;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
   color: var(--charcoal);
 }
 
@@ -1431,7 +1432,8 @@ h1, h2, h3, h4, p {
 .web-pricing h3 {
   font-size: clamp(1.8rem, 2.8vw, 2.5rem);
   margin: 0;
-  letter-spacing: -0.05em;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   color: var(--charcoal);
 }
 
