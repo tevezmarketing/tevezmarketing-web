@@ -1,0 +1,5 @@
+CONTACT: contact@tevezmarketing.digital
+POLICY: https://tevezmarketing.digital/politicas-de-privacidad/
+ACKNOWLEDGEMENTS: Thanks to our technical partners and the open-source community.
+PREFERRED-LANGUAGES: es, en
+SAFE: YES

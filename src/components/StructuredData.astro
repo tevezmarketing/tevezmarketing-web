@@ -1,0 +1,14 @@
+---
+interface Props {
+  type: 'ProfessionalService' | 'FAQPage' | 'BreadcrumbList' | 'Service';
+  data: any;
+}
+
+const { type, data } = Astro.props;
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": type,
+  ...data
+})} />

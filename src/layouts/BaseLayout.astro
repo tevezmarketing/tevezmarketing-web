@@ -1,0 +1,200 @@
+---
+import GoogleTagManager from '../components/GoogleTagManager.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  canonical?: string;
+  showOpening?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = "https://tevezmarketing.digital/wp-content/uploads/2025/09/og-tevezmarketing.webp",
+  canonical = "https://tevezmarketing.digital/",
+  showOpening = false,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es-CO">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#111111" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={ogImage} />
+    <link rel="canonical" href={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    
+    <!-- Meta Tags Adicionales para SEO Premium -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Tévez Marketing" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="Tévez Marketing" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <GoogleTagManager />
+
+    {showOpening && (
+      <div class="tevez-opening" id="openingHero" aria-live="polite" aria-label="Introducción de marca">
+        <div class="tevez-opening-line"></div>
+        <div class="tevez-side-mark">T</div>
+        <main class="tevez-opening-content">
+          <h1 class="tevez-opening-title">
+            <span class="tevez-title-mask"><span class="tevez-word">TEVEZ</span></span>
+            <span class="tevez-title-mask"><span class="tevez-word">MARKETING</span></span>
+          </h1>
+        </main>
+      </div>
+    )}
+
+    <svg width="0" height="0" style="position: absolute; left: -9999px;" aria-hidden="true">
+      <filter id="liquid">
+        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.025" numOctaves="2" seed="8" result="noise">
+          <animate attributeName="baseFrequency" values="0.012 0.025;0.018 0.035;0.012 0.025" dur="5s" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="9" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </svg>
+
+    <div class="progress-bar" aria-hidden="true"><span id="scroll-progress"></span></div>
+
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="https://tevezmarketing.digital" aria-label="Tevez Marketing inicio">
+          <span class="brand-mark">T</span>
+          <span class="brand-text">
+            <strong>Tevez</strong>
+            <small>Marketing</small>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
+          <a href="https://tevezmarketing.digital">Inicio</a>
+          <div class="nav-item nav-item--submenu">
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-controls="services-menu">
+              Nuestros servicios
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M3.5 6l4.5 4.5L12.5 6" />
+              </svg>
+            </button>
+            <div class="nav-submenu" id="services-menu">
+              <a href="https://tevezmarketing.digital/estrategias-de-ventas/">Estrategias de ventas</a>
+              <a href="https://tevezmarketing.digital/optimizacion-de-campanas/">Optimización de campañas</a>
+              <a href="https://tevezmarketing.digital/anuncios-sectores-regulados/">Anuncios sectores regulados</a>
+              <a href="https://tevezmarketing.digital/sitios-web-ibague/">Sitios web Ibagué</a>
+              <a href="https://tevezmarketing.digital/google-ads-ibague/">Google Ads Ibagué</a>
+              <a href="https://tevezmarketing.digital/publicidad-en-redes/">Publicidad en redes</a>
+            </div>
+          </div>
+          <a href="https://tevezmarketing.digital/quienes-somos/">Quiénes somos</a>
+          <a href="https://tevezmarketing.digital/casos-de-exito/">Casos de éxito</a>
+          <a href="https://tevezmarketing.digital/protocolo-360/">Protocolo 360</a>
+          <div class="nav-item nav-item--submenu">
+            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-controls="coverage-menu">
+              Cobertura
+              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+                <path d="M3.5 6l4.5 4.5L12.5 6" />
+              </svg>
+            </button>
+            <div class="nav-submenu" id="coverage-menu">
+              <a href="https://tevezmarketing.digital/marketing-bogota/">Marketing Bogotá</a>
+              <a href="https://tevezmarketing.digital/marketing-medellin/">Marketing Medellín</a>
+              <a href="https://tevezmarketing.digital/marketing-cali/">Marketing Cali</a>
+              <a href="https://tevezmarketing.digital/marketing-usa/">Marketing USA</a>
+            </div>
+          </div>
+          <a href="https://tevezmarketing.digital/noticias/">Noticias</a>
+          <button class="nav-cta lead-trigger" type="button">Consulta gratis</button>
+        </nav>
+      </div>
+    </header>
+
+    <slot />
+
+    <div class="lead-modal" id="lead-qualifier" aria-hidden="true">
+      <div class="lead-modal-backdrop" data-close-modal="true"></div>
+      <div class="lead-modal-panel" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+        <button class="lead-close" type="button" aria-label="Cerrar formulario">×</button>
+        <div class="lead-qualifier-copy lead-modal-copy">
+          <p class="eyebrow">Diagnóstico rápido</p>
+          <h2 id="leadModalTitle">Te ayudamos a decidir qué hace falta primero.</h2>
+          <p class="lead-note">Un filtro corto para llegar con la mejor propuesta y sin perder tiempo.</p>
+        </div>
+        <form class="lead-form" id="leadForm">
+          <div class="lead-options" role="radiogroup" aria-label="Qué necesita">
+            <label class="option-chip"><input type="radio" name="intent" value="asesoria" checked><span>Asesoría</span></label>
+            <label class="option-chip"><input type="radio" name="intent" value="servicio"><span>Compra de servicio</span></label>
+          </div>
+          <div class="lead-grid">
+            <label><span>¿De dónde eres?</span><select name="city" required><option value="">Selecciona tu ciudad</option><option>Ibagué</option><option>Tolima</option><option>Bogotá</option><option>Medellín</option><option>Otro</option></select></label>
+            <label><span>Tu nombre</span><input type="text" name="name" placeholder="Ej. Camila" required></label>
+          </div>
+          <button class="primary-button" type="submit">Continuar a WhatsApp</button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <a class="brand footer-brand" href="https://tevezmarketing.digital" aria-label="Tevez Marketing logo">
+            <span class="brand-mark">T</span>
+            <span class="brand-text"><strong>Tevez</strong><small>Marketing</small></span>
+          </a>
+        </div>
+        <div class="footer-links">
+          <div>
+            <h3>Servicios</h3>
+            <a href="https://tevezmarketing.digital/google-ads-ibague/">Google Ads</a>
+            <a href="https://tevezmarketing.digital/sitios-web-ibague/">Sitios Web</a>
+            <a href="https://tevezmarketing.digital/estrategias-de-ventas/">Estrategias</a>
+          </div>
+          <div>
+            <h3>Empresa</h3>
+            <a href="https://tevezmarketing.digital/quienes-somos/">Quiénes somos</a>
+            <a href="https://tevezmarketing.digital/casos-de-exito/">Casos</a>
+            <a href="https://tevezmarketing.digital/protocolo-360/">Protocolo</a>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <a href="tel:+573170183313">+57 317 018 3313</a>
+            <a href="https://wa.me/573170183313" target="_blank" rel="noreferrer noopener">WhatsApp</a>
+            <a href="https://www.linkedin.com/in/tevezmarketing/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <span>© <span id="year"></span> Tévez Marketing. Todos los derechos reservados.</span>
+          <a href="https://tevezmarketing.digital/politicas-de-privacidad/" target="_blank" rel="noreferrer noopener">Política de privacidad</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/app.js" is:inline></script>
+  </body>
+</html>

@@ -280,6 +280,29 @@ if (navToggle && siteNav) {
   });
 }
 
+// Dashboard Parallax
+const heroVisual = document.querySelector('.hero-visual');
+if (heroVisual) {
+  heroVisual.addEventListener('mousemove', (e) => {
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = heroVisual.getBoundingClientRect();
+    const x = (clientX - left) / width - 0.5;
+    const y = (clientY - top) / height - 0.5;
+    
+    const dashWindow = heroVisual.querySelector('.dashboard-window');
+    if (dashWindow) {
+      dashWindow.style.transform = `perspective(1000px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(${y * 10}px)`;
+    }
+  });
+  
+  heroVisual.addEventListener('mouseleave', () => {
+    const dashWindow = heroVisual.querySelector('.dashboard-window');
+    if (dashWindow) {
+      dashWindow.style.transform = `perspective(1000px) rotateY(0) rotateX(0) translateY(0)`;
+    }
+  });
+}
+
 const serviceCards = document.querySelectorAll('.service-card, .price-card');
 serviceCards.forEach((card) => {
   const link = card.querySelector('a[href]');

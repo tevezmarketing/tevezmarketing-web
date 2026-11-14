@@ -1,511 +1,441 @@
 ---
-import GoogleTagManager from '../components/GoogleTagManager.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import StructuredData from '../components/StructuredData.astro';
 ---
 
-<!DOCTYPE html>
-<html lang="es-CO">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tévez Marketing | Especialista en marketing digital en Ibagué y Tolima</title>
-    <meta
-      name="description"
-      content="Tévez Marketing ayuda a negocios de Ibagué, Tolima y Colombia a ganar visibilidad, clientes y ventas con SEO, GEO, Google Ads, sitios web y estrategias de marketing digital."
-    />
-    <meta name="theme-color" content="#111111" />
-    <meta property="og:title" content="Tévez Marketing | Marketing digital en Ibagué y Tolima" />
-    <meta
-      property="og:description"
-      content="Especialista en marketing digital para negocios que quieren posicionarse, vender más y crecer con estrategia, tecnología y claridad."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://tevezmarketing.digital/" />
-    <meta property="og:image" content="https://tevezmarketing.digital/wp-content/uploads/2025/09/og-tevezmarketing.webp" />
-    <link rel="canonical" href="https://tevezmarketing.digital/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ProfessionalService",
+<BaseLayout 
+  title="Tévez Marketing | Especialista en marketing digital en Ibagué y Tolima"
+  description="Tévez Marketing ayuda a negocios de Ibagué, Tolima y Colombia a ganar visibilidad, clientes y ventas con SEO, GEO, Google Ads, sitios web y estrategias de marketing digital."
+  showOpening={true}
+>
+  <fragment slot="head">
+    <StructuredData 
+      type="ProfessionalService"
+      data={{
         "name": "Tévez Marketing",
-        "description": "Agencia de marketing digital en Ibagué y Tolima especializada en SEO, GEO, Google Ads, publicidad digital y desarrollo de sitios web para PYMES.",
-        "areaServed": ["Ibagué", "Tolima", "Colombia", "Latinoamérica"],
+        "image": "https://tevezmarketing.digital/wp-content/uploads/2025/09/og-tevezmarketing.webp",
         "url": "https://tevezmarketing.digital/",
         "telephone": "+573170183313",
-        "sameAs": [
-          "https://www.linkedin.com/in/tevezmarketing/",
-          "https://clutch.co/profile/tevezmarketing"
-        ],
+        "priceRange": "$$$",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Ibagué",
           "addressRegion": "Tolima",
           "addressCountry": "CO"
-        }
-      }
-    </script>
-  </head>
-  <body>
-    <GoogleTagManager />
-    <div class="tevez-opening" id="openingHero" aria-live="polite" aria-label="Introducción de marca">
-      <div class="tevez-opening-line"></div>
-      <div class="tevez-side-mark">T</div>
-      <main class="tevez-opening-content">
-        <h1 class="tevez-opening-title">
-          <span class="tevez-title-mask"><span class="tevez-word">TEVEZ</span></span>
-          <span class="tevez-title-mask"><span class="tevez-word">MARKETING</span></span>
-        </h1>
-      </main>
-    </div>
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 4.4389,
+          "longitude": -75.2322
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/tevezmarketing/",
+          "https://clutch.co/profile/tevezmarketing"
+        ],
+        "knowsAbout": [
+          "SEO", "Google Ads", "Marketing Digital", "Desarrollo Web", "Estrategias de Ventas", "GEO Posicionamiento"
+        ]
+      }}
+    />
+    <StructuredData 
+      type="FAQPage"
+      data={{
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué servicios ofrece Tévez Marketing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ofrecemos SEO local, GEO, Google Ads, publicidad en redes, sitios web, landing pages, estrategias de ventas y optimización de campañas para negocios que quieren vender más."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Trabajan en Ibagué y Tolima?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. La estrategia se orienta a Ibagué, Tolima, Colombia y otros mercados regionales, con enfoque en la intención de búsqueda local y la realidad del negocio."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Hacen SEO y GEO para aparecer en Google y en IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. Diseñamos presencia para buscadores tradicionales y para sistemas de inteligencia artificial, con textos, estructura y autoridad que ayuden a la recomendación."
+            }
+          }
+        ]
+      }}
+    />
+  </fragment>
 
-    <svg width="0" height="0" style="position: absolute; left: -9999px;">
-      <filter id="liquid">
-        <feTurbulence
-          type="fractalNoise"
-          baseFrequency="0.012 0.025"
-          numOctaves="2"
-          seed="8"
-          result="noise">
-          <animate
-            attributeName="baseFrequency"
-            values="0.012 0.025;0.018 0.035;0.012 0.025"
-            dur="5s"
-            repeatCount="indefinite"/>
-        </feTurbulence>
-        <feDisplacementMap
-          in="SourceGraphic"
-          in2="noise"
-          scale="9"
-          xChannelSelector="R"
-          yChannelSelector="G"/>
-      </filter>
-    </svg>
+  <main>
+    <section class="hero theme-charcoal" id="inicio" data-theme="charcoal">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Especialista en marketing en Ibagué</p>
+          <h1>Tu negocio no aparece y tus clientes no te eligen.</h1>
+          <p class="lead">
+            Somos experto en SEO y GEO posicionamos tu marca
+          </p>
 
-    <div class="progress-bar" aria-hidden="true"><span id="scroll-progress"></span></div>
-
-    <header class="site-header">
-      <div class="container nav-shell">
-        <a class="brand" href="#inicio" aria-label="Tevez Marketing inicio">
-          <span class="brand-mark">T</span>
-          <span class="brand-text">
-            <strong>Tevez</strong>
-            <small>Marketing</small>
-          </span>
-        </a>
-
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menú">
-          <span></span><span></span><span></span>
-        </button>
-
-        <nav id="site-nav" class="site-nav" aria-label="Navegación principal">
-          <a href="https://tevezmarketing.digital">Inicio</a>
-
-          <div class="nav-item nav-item--submenu">
-            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-controls="services-menu">
-              Nuestros servicios
-              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                <path d="M3.5 6l4.5 4.5L12.5 6" />
-              </svg>
-            </button>
-            <div class="nav-submenu" id="services-menu">
-              <a href="https://tevezmarketing.digital/estrategias-de-ventas/">Estrategias de ventas</a>
-              <a href="https://tevezmarketing.digital/optimizacion-de-campanas/">Optimización de campañas</a>
-              <a href="https://tevezmarketing.digital/anuncios-sectores-regulados/">Anuncios sectores regulados</a>
-              <a href="https://tevezmarketing.digital/sitios-web-ibague/">Sitios web Ibagué</a>
-              <a href="https://tevezmarketing.digital/google-ads-ibague/">Google Ads Ibagué</a>
-              <a href="https://tevezmarketing.digital/publicidad-en-redes/">Publicidad en redes</a>
-            </div>
+          <div class="cta-row">
+            <button class="primary-button lead-trigger" type="button">Solicitar consultoría</button>
+            <a class="secondary-button" href="#servicios">Ver servicios</a>
           </div>
 
-          <a href="https://tevezmarketing.digital/quienes-somos/">Quiénes somos</a>
-          <a href="https://tevezmarketing.digital/casos-de-exito/">Casos de éxito</a>
-          <a href="https://tevezmarketing.digital/protocolo-360/">Protocolo 360</a>
+          <ul class="hero-trust" aria-label="Indicadores clave de la marca">
+            <li><strong>+6 años</strong><span>acercando el marketing a las PYMES</span></li>
+            <li><strong>SEO + GEO</strong><span>en buscadores y IA</span></li>
+            <li><strong>Sin permanencia</strong><span>plan claro y sin letra pequeña</span></li>
+          </ul>
+        </div>
 
-          <div class="nav-item nav-item--submenu">
-            <button class="nav-drop-toggle" type="button" aria-expanded="false" aria-controls="coverage-menu">
-              Cobertura
-              <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-                <path d="M3.5 6l4.5 4.5L12.5 6" />
-              </svg>
-            </button>
-            <div class="nav-submenu" id="coverage-menu">
-              <a href="https://tevezmarketing.digital/marketing-bogota/">Marketing Bogotá</a>
-              <a href="https://tevezmarketing.digital/marketing-medellin/">Marketing Medellín</a>
-              <a href="https://tevezmarketing.digital/marketing-cali/">Marketing Cali</a>
-              <a href="https://tevezmarketing.digital/marketing-usa/">Marketing USA</a>
-            </div>
-          </div>
-
-          <a href="https://tevezmarketing.digital/noticias/">Noticias</a>
-          <button class="nav-cta lead-trigger" type="button">Consulta gratis</button>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <section class="hero theme-charcoal" id="inicio" data-theme="charcoal">
-        <div class="container hero-grid">
-          <div class="hero-copy reveal">
-            <p class="eyebrow">Especialista en marketing en Ibagué</p>
-            <h1>Tu negocio no aparece y tus clientes no te eligen.</h1>
-            <p class="lead">
-              Somos experto en SEO y GEO posicionamos tu marca
-            </p>
-
-            <div class="cta-row">
-              <button class="primary-button lead-trigger" type="button">Solicitar consultoría</button>
-              <a class="secondary-button" href="#servicios">Ver servicios</a>
+        <div class="hero-visual reveal" aria-label="Vista previa de panel de marketing digital">
+          <div class="dashboard-window">
+            <div class="window-topbar">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
             </div>
 
-            <ul class="hero-trust" aria-label="Indicadores clave de la marca">
-              <li><strong>+6 años</strong><span>acercando el marketing a las PYMES</span></li>
-              <li><strong>SEO + GEO</strong><span>en buscadores y IA</span></li>
-              <li><strong>Sin permanencia</strong><span>plan claro y sin letra pequeña</span></li>
-            </ul>
-          </div>
-
-          <div class="hero-visual reveal" aria-label="Vista previa de panel de marketing digital">
-            <div class="dashboard-window">
-              <div class="window-topbar">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+            <div class="dashboard-body">
+              <div class="panel-head">
+                <div>
+                  <small>TevezMarketing</small>
+                  <h2>Funnel de crecimiento</h2>
+                </div>
+                <span class="chip chip-accent">LIVE</span>
               </div>
 
-              <div class="dashboard-body">
-                <div class="panel-head">
+              <div class="chart-grid">
+                <article class="mini-stat">
+                  <span>Leads</span>
+                  <strong>+42%</strong>
+                  <em>en 90 días</em>
+                </article>
+                <article class="mini-stat">
+                  <span>CTR</span>
+                  <strong>8.3%</strong>
+                  <em>en Google Ads</em>
+                </article>
+                <article class="mini-stat">
+                  <span>Ventas</span>
+                  <strong>+21%</strong>
+                  <em>acumulado</em>
+                </article>
+              </div>
+
+              <div class="flow-panel" aria-label="Representación del proceso">
+                <div class="flow-item">
+                  <span class="flow-index">01</span>
                   <div>
-                    <small>TevezMarketing</small>
-                    <h2>Funnel de crecimiento</h2>
+                    <h3>Diagnóstico</h3>
+                    <p>Mercado, posición, oportunidades y riesgos.</p>
                   </div>
-                  <span class="chip chip-accent">LIVE</span>
                 </div>
-
-                <div class="chart-grid">
-                  <article class="mini-stat">
-                    <span>Leads</span>
-                    <strong>+42%</strong>
-                    <em>en 90 días</em>
-                  </article>
-                  <article class="mini-stat">
-                    <span>CTR</span>
-                    <strong>8.3%</strong>
-                    <em>en Google Ads</em>
-                  </article>
-                  <article class="mini-stat">
-                    <span>Ventas</span>
-                    <strong>+21%</strong>
-                    <em>acumulado</em>
-                  </article>
+                <div class="flow-item">
+                  <span class="flow-index">02</span>
+                  <div>
+                    <h3>Estratégia</h3>
+                    <p>SEO, GEO, pauta y embudo de conversión.</p>
+                  </div>
                 </div>
-
-                <div class="flow-panel" aria-label="Representación del proceso">
-                  <div class="flow-item">
-                    <span class="flow-index">01</span>
-                    <div>
-                      <h3>Diagnóstico</h3>
-                      <p>Mercado, posición, oportunidades y riesgos.</p>
-                    </div>
-                  </div>
-                  <div class="flow-item">
-                    <span class="flow-index">02</span>
-                    <div>
-                      <h3>Estratégia</h3>
-                      <p>SEO, GEO, pauta y embudo de conversión.</p>
-                    </div>
-                  </div>
-                  <div class="flow-item">
-                    <span class="flow-index">03</span>
-                    <div>
-                      <h3>Optimización</h3>
-                      <p>Medición, mensajes, segmentación y ajuste.</p>
-                    </div>
+                <div class="flow-item">
+                  <span class="flow-index">03</span>
+                  <div>
+                    <h3>Optimización</h3>
+                    <p>Medición, mensajes, segmentación y ajuste.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="market-strip reveal theme-marfil" aria-label="Cobertura geográfica" data-theme="marfil">
-        <div class="container strip-inner">
-          <span class="strip-label">Cobertura</span>
-          <div class="strip-list">
-            <span>Ibagué</span>
-            <span>Tolima</span>
-            <span>Colombia</span>
-            <span>Bogotá</span>
-            <span>Medellín</span>
-            <span>Cali</span>
-            <span>EE. UU.</span>
-          </div>
+    <section class="market-strip reveal theme-marfil" aria-label="Cobertura geográfica" data-theme="marfil">
+      <div class="container strip-inner">
+        <span class="strip-label">Cobertura</span>
+        <div class="strip-list">
+          <span>Ibagué</span>
+          <span>Tolima</span>
+          <span>Colombia</span>
+          <span>Bogotá</span>
+          <span>Medellín</span>
+          <span>Cali</span>
+          <span>EE. UU.</span>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section theme-gold" id="servicios" data-theme="gold">
-        <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Servicios</p>
-            <h2>Más ventas, menos ruido mejor decisión.</h2>
-          </div>
-
-          <div class="service-grid">
-            <article class="service-card reveal">
-              <div class="service-icon">01</div>
-              <h3>Tu web no vende</h3>
-              <p>La gente te busca, pero no confía en lo que ves. Te ayudamos a que tu sitio haga ventas, no solo volumen.</p>
-              <ul>
-                <li>SEO + GEO</li>
-                <li>Diseño con intención</li>
-                <li>Velocidad real</li>
-              </ul>
-              <a href="https://tevezmarketing.digital/sitios-web-ibague/">Saber más</a>
-            </article>
-
-            <article class="service-card reveal">
-              <div class="service-icon">02</div>
-              <h3>No apareces</h3>
-              <p>Si no estás en la primera página, no estás en la conversación. Captamos clientes que ya tienen intención.</p>
-              <ul>
-                <li>Intento de compra</li>
-                <li>Segmentación clara</li>
-                <li>Leads con seguimiento</li>
-              </ul>
-              <a href="https://tevezmarketing.digital/google-ads-ibague/">Saber más</a>
-            </article>
-
-            <article class="service-card reveal">
-              <div class="service-icon">03</div>
-              <h3>Tu anuncio no convierte</h3>
-              <p>La publicidad funciona solo si el mensaje y la oferta encajan. Te ayudamos a vender, no a gastar más.</p>
-              <ul>
-                <li>Mensajes claros</li>
-                <li>Remarketing</li>
-                <li>Optimización constante</li>
-              </ul>
-              <a href="https://tevezmarketing.digital/publicidad-en-redes/">Saber más</a>
-            </article>
-
-            <article class="service-card reveal">
-              <div class="service-icon">04</div>
-              <h3>Estrategias de ventas</h3>
-              <p>Diseñamos flujos de captación y conversión para que tu empresa venda más, y repita compra.</p>
-              <ul>
-                <li>Embudos y mensajes</li>
-                <li>CRM + seguimiento</li>
-                <li>Fidelización y retención</li>
-              </ul>
-              <a href="https://tevezmarketing.digital/estrategias-de-ventas/">Saber más</a>
-            </article>
-
-            <article class="service-card reveal">
-              <div class="service-icon">05</div>
-              <h3>Campañas que rinden</h3>
-              <p>Revisión constante de campañas para mejorar costo por adquisición, alcance y retorno de inversión.</p>
-              <ul>
-                <li>Optimización semanal</li>
-                <li>Medición real</li>
-                <li>Control de presupuestos</li>
-              </ul>
-              <a href="https://tevezmarketing.digital/optimizacion-de-campanas/">Saber más</a>
-            </article>
-
-            <article class="service-card reveal">
-              <div class="service-icon">06</div>
-              <h3>Especialistas en nichos complejos</h3>
-              <p>Publicidad y estrategia para sectores delicados: legales, finanzas, política y otros nichos con reglas específicas.</p>
-              <ul>
-                <li>Cumplimiento de reglas</li>
-                <li>Seguridad de cuenta</li>
-                <li>Gestión responsable</li>
-              </ul>
-              <a href="https://tevezmarketing.digital/anuncios-sectores-regulados/">Saber más</a>
-            </article>
-          </div>
+    <section class="section theme-gold" id="servicios" data-theme="gold">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Servicios</p>
+          <h2>Más ventas, menos ruido mejor decisión.</h2>
         </div>
-      </section>
 
-      <section class="section alt-surface theme-marfil" id="metodologia" data-theme="marfil">
-        <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Metodología</p>
-            <h2>Vemos el problema y lo corregimos.</h2>
-          </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">01</div>
+            <h3>Tu web no vende</h3>
+            <p>La gente te busca, pero no confía en lo que ves. Te ayudamos a que tu sitio haga ventas, no solo volumen.</p>
+            <ul>
+              <li>SEO + GEO</li>
+              <li>Diseño con intención</li>
+              <li>Velocidad real</li>
+            </ul>
+            <a href="https://tevezmarketing.digital/sitios-web-ibague/">Saber más</a>
+          </article>
 
-          <div class="method-grid">
-            <article class="method-step reveal">
-              <span>01</span>
-              <h3>Diagnóstico</h3>
-              <p>Vemos dónde estás perdiendo clientes y por qué.</p>
-            </article>
-            <article class="method-step reveal">
-              <span>02</span>
-              <h3>Estrategia</h3>
-              <p>Definimos lo que sí funciona para tu mercado.</p>
-            </article>
-            <article class="method-step reveal">
-              <span>03</span>
-              <h3>Acción</h3>
-              <p>Ejecutamos con claridad, sin ruido ni improvisación.</p>
-            </article>
-            <article class="method-step reveal">
-              <span>04</span>
-              <h3>Optimización</h3>
-              <p>Mejoramos mensajes, páginas y anuncios para vender más.</p>
-            </article>
-          </div>
+          <article class="service-card reveal">
+            <div class="service-icon">02</div>
+            <h3>No apareces</h3>
+            <p>Si no estás en la primera página, no estás en la conversación. Captamos clientes que ya tienen intención.</p>
+            <ul>
+              <li>Intento de compra</li>
+              <li>Segmentación clara</li>
+              <li>Leads con seguimiento</li>
+            </ul>
+            <a href="https://tevezmarketing.digital/google-ads-ibague/">Saber más</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">03</div>
+            <h3>Tu anuncio no convierte</h3>
+            <p>La publicidad funciona solo si el mensaje y la oferta encajan. Te ayudamos a vender, no a gastar más.</p>
+            <ul>
+              <li>Mensajes claros</li>
+              <li>Remarketing</li>
+              <li>Optimización constante</li>
+            </ul>
+            <a href="https://tevezmarketing.digital/publicidad-en-redes/">Saber más</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">04</div>
+            <h3>Estrategias de ventas</h3>
+            <p>Diseñamos flujos de captación y conversión para que tu empresa venda más, y repita compra.</p>
+            <ul>
+              <li>Embudos y mensajes</li>
+              <li>CRM + seguimiento</li>
+              <li>Fidelización y retención</li>
+            </ul>
+            <a href="https://tevezmarketing.digital/estrategias-de-ventas/">Saber más</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">05</div>
+            <h3>Campañas que rinden</h3>
+            <p>Revisión constante de campañas para mejorar costo por adquisición, alcance y retorno de inversión.</p>
+            <ul>
+              <li>Optimización semanal</li>
+              <li>Medición real</li>
+              <li>Control de presupuestos</li>
+            </ul>
+            <a href="https://tevezmarketing.digital/optimizacion-de-campanas/">Saber más</a>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">06</div>
+            <h3>Especialistas en nichos complejos</h3>
+            <p>Publicidad y estrategia para sectores delicados: legales, finanzas, política y otros nichos con reglas específicas.</p>
+            <ul>
+              <li>Cumplimiento de reglas</li>
+              <li>Seguridad de cuenta</li>
+              <li>Gestión responsable</li>
+            </ul>
+            <a href="https://tevezmarketing.digital/anuncios-sectores-regulados/">Saber más</a>
+          </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section theme-white" id="resultados" data-theme="white">
-        <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Resultados</p>
-            <h2>Un negocio visible vende mejor.</h2>
-          </div>
-
-          <div class="results-grid">
-            <article class="review-card reveal">
-              <div class="stars" aria-label="5 estrellas">★★★★★</div>
-              <p>“Antes no tenía presencia en internet y hoy mi negocio recibe clientes todos los días. Ahora recibo hasta 8 cotizaciones diarias.”</p>
-              <div class="review-meta">
-                <strong>Aura Avila</strong>
-                <span>Lérida, Tolima</span>
-              </div>
-            </article>
-
-            <article class="review-card reveal">
-              <div class="stars" aria-label="5 estrellas">★★★★★</div>
-              <p>“TevezMarketing ha resultado en un aumento del 20% en el valor de la propiedad y una reducción del 30% en los costos de mantenimiento a largo plazo.”</p>
-              <div class="review-meta">
-                <strong>Jorge Nuñez</strong>
-                <span>Clutch</span>
-              </div>
-            </article>
-
-            <article class="review-card reveal">
-              <div class="stars" aria-label="5 estrellas">★★★★★</div>
-              <p>“Nos ayudó a llevar nuestra publicidad en Google y a crecer más clientes para nuestro negocio en Bogotá.”</p>
-              <div class="review-meta">
-                <strong>Fernando Perez</strong>
-                <span>Google Business Profile</span>
-              </div>
-            </article>
-          </div>
+    <section class="section alt-surface theme-marfil" id="metodologia" data-theme="marfil">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Metodología</p>
+          <h2>Vemos el problema y lo corregimos.</h2>
         </div>
-      </section>
 
-      <section class="section pricing-section theme-champagne" id="precios" data-theme="champagne">
-        <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Precios</p>
-            <h2>Sin complicaciones solo una forma clara de crecer.</h2>
-          </div>
+        <div class="method-grid">
+          <article class="method-step reveal">
+            <span>01</span>
+            <h3>Diagnóstico</h3>
+            <p>Vemos dónde estás perdiendo clientes y por qué.</p>
+          </article>
+          <article class="method-step reveal">
+            <span>02</span>
+            <h3>Estrategia</h3>
+            <p>Definimos lo que sí funciona para tu mercado.</p>
+          </article>
+          <article class="method-step reveal">
+            <span>03</span>
+            <h3>Acción</h3>
+            <p>Ejecutamos con claridad, sin ruido ni improvisación.</p>
+          </article>
+          <article class="method-step reveal">
+            <span>04</span>
+            <h3>Optimización</h3>
+            <p>Mejoramos mensajes, páginas y anuncios para vender más.</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-          <div class="pricing-grid">
-            <article class="price-card reveal">
-              <span class="badge">Plan de entrada</span>
-              <h3>Arranque</h3>
-              <p class="ideal">Para emprendedores y negocios que recién empiezan.</p>
-              <div class="price-line">
-                <span class="label">Gestión y estrategia</span>
-                <strong>$750.000<span>/mes</span></strong>
-              </div>
-              <ul>
-                <li>Gestión de 1 plataforma</li>
-                <li>Hasta 4 campañas activas</li>
-                <li>Configuración de medición</li>
-                <li>Optimización semanal</li>
-              </ul>
-              <a href="https://api.whatsapp.com/send/?phone=573170183313&text=Hola+T%C3%A9vez%2C+me+interesa+el+plan+Arranque+Local&type=phone_number&app_absent=0" target="_blank" rel="noreferrer noopener">Quiero Arranque</a>
-            </article>
+    <section class="section theme-white" id="resultados" data-theme="white">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Resultados</p>
+          <h2>Un negocio visible vende mejor.</h2>
+        </div>
 
-            <article class="price-card featured reveal">
-              <span class="badge badge-featured">Recomendado</span>
-              <h3>Crecimiento</h3>
-              <p class="ideal">Para negocios que ya buscan resultados consistentes.</p>
-              <div class="price-line">
-                <span class="label">Gestión y estrategia</span>
-                <strong>$1.300.000<span>/mes</span></strong>
-              </div>
-              <ul>
-                <li>Gestión de 2 plataformas</li>
-                <li>Hasta 8 campañas activas</li>
-                <li>Creativos incluidos</li>
-                <li>Seguimiento semanal</li>
-              </ul>
-              <a href="https://api.whatsapp.com/send/?phone=573170183313&text=Hola+T%C3%A9vez%2C+me+interesa+el+plan+Crecimiento+Tolima&type=phone_number&app_absent=0" target="_blank" rel="noreferrer noopener">Quiero Crecimiento</a>
-            </article>
-
-            <article class="price-card reveal">
-              <span class="badge">Máximo nivel</span>
-              <h3>Dominio</h3>
-              <p class="ideal">Para negocios que quieren dominar su mercado.</p>
-              <div class="price-line">
-                <span class="label">Gestión y estrategia</span>
-                <strong>$1.800.000<span>/mes</span></strong>
-              </div>
-              <ul>
-                <li>SEO + GEO avanzado</li>
-                <li>4 plataformas</li>
-                <li>Google Business Profile</li>
-                <li>Soporte VIP</li>
-              </ul>
-              <a href="https://api.whatsapp.com/send/?phone=573170183313&text=Hola+T%C3%A9vez%2C+me+interesa+el+plan+Dominio+Local&type=phone_number&app_absent=0" target="_blank" rel="noreferrer noopener">Quiero Dominio</a>
-            </article>
-          </div>
-
-          <div class="web-pricing reveal">
-            <div class="web-pricing-copy">
-              <p class="eyebrow">Páginas web</p>
-              <h3>Landing Page y sitios para vender más.</h3>
+        <div class="results-grid">
+          <article class="review-card reveal">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p>“Antes no tenía presencia en internet y hoy mi negocio recibe clientes todos los días. Ahora recibo hasta 8 cotizaciones diarias.”</p>
+            <div class="review-meta">
+              <strong>Aura Avila</strong>
+              <span>Lérida, Tolima</span>
             </div>
-            <div class="web-pricing-list">
-              <div>
-                <span class="web-price">Desde $650.000</span>
-                <small>Landing Page</small>
-              </div>
-              <div>
-                <span class="web-price">Desde $1.500.000</span>
-                <small>Sitio Starter</small>
-              </div>
-              <div>
-                <span class="web-price">Desde $3.200.000</span>
-                <small>Empresarial</small>
-              </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p>“TevezMarketing ha resultado en un aumento del 20% en el valor de la propiedad y una reducción del 30% en los costos de mantenimiento a largo plazo.”</p>
+            <div class="review-meta">
+              <strong>Jorge Nuñez</strong>
+              <span>Clutch</span>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="stars" aria-label="5 estrellas">★★★★★</div>
+            <p>“Nos ayudó a llevar nuestra publicidad en Google y a crecer más clientes para nuestro negocio en Bogotá.”</p>
+            <div class="review-meta">
+              <strong>Fernando Perez</strong>
+              <span>Google Business Profile</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-section theme-champagne" id="precios" data-theme="champagne">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Precios</p>
+          <h2>Sin complicaciones solo una forma clara de crecer.</h2>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <span class="badge">Plan de entrada</span>
+            <h3>Arranque</h3>
+            <p class="ideal">Para emprendedores y negocios que recién empiezan.</p>
+            <div class="price-line">
+              <span class="label">Gestión y estrategia</span>
+              <strong>$750.000<span>/mes</span></strong>
+            </div>
+            <ul>
+              <li>Gestión de 1 plataforma</li>
+              <li>Hasta 4 campañas activas</li>
+              <li>Configuración de medición</li>
+              <li>Optimización semanal</li>
+            </ul>
+            <a href="https://api.whatsapp.com/send/?phone=573170183313&text=Hola+T%C3%A9vez%2C+me+interesa+el+plan+Arranque+Local&type=phone_number&app_absent=0" target="_blank" rel="noreferrer noopener">Quiero Arranque</a>
+          </article>
+
+          <article class="price-card featured reveal">
+            <span class="badge badge-featured">Recomendado</span>
+            <h3>Crecimiento</h3>
+            <p class="ideal">Para negocios que ya buscan resultados consistentes.</p>
+            <div class="price-line">
+              <span class="label">Gestión y estrategia</span>
+              <strong>$1.300.000<span>/mes</span></strong>
+            </div>
+            <ul>
+              <li>Gestión de 2 plataformas</li>
+              <li>Hasta 8 campañas activas</li>
+              <li>Creativos incluidos</li>
+              <li>Seguimiento semanal</li>
+            </ul>
+            <a href="https://api.whatsapp.com/send/?phone=573170183313&text=Hola+T%C3%A9vez%2C+me+interesa+el+plan+Crecimiento+Tolima&type=phone_number&app_absent=0" target="_blank" rel="noreferrer noopener">Quiero Crecimiento</a>
+          </article>
+
+          <article class="price-card reveal">
+            <span class="badge">Máximo nivel</span>
+            <h3>Dominio</h3>
+            <p class="ideal">Para negocios que quieren dominar su mercado.</p>
+            <div class="price-line">
+              <span class="label">Gestión y estrategia</span>
+              <strong>$1.800.000<span>/mes</span></strong>
+            </div>
+            <ul>
+              <li>SEO + GEO avanzado</li>
+              <li>4 plataformas</li>
+              <li>Google Business Profile</li>
+              <li>Soporte VIP</li>
+            </ul>
+            <a href="https://api.whatsapp.com/send/?phone=573170183313&text=Hola+T%C3%A9vez%2C+me+interesa+el+plan+Dominio+Local&type=phone_number&app_absent=0" target="_blank" rel="noreferrer noopener">Quiero Dominio</a>
+          </article>
+        </div>
+
+        <div class="web-pricing reveal">
+          <div class="web-pricing-copy">
+            <p class="eyebrow">Páginas web</p>
+            <h3>Landing Page y sitios para vender más.</h3>
+          </div>
+          <div class="web-pricing-list">
+            <div>
+              <span class="web-price">Desde $650.000</span>
+              <small>Landing Page</small>
+            </div>
+            <div>
+              <span class="web-price">Desde $1.500.000</span>
+              <small>Sitio Starter</small>
+            </div>
+            <div>
+              <span class="web-price">Desde $3.200.000</span>
+              <small>Empresarial</small>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section alt-surface brand-principles theme-burgundy" id="por-que" data-theme="burgundy">
-        <div class="container">
-          <div class="section-heading reveal">
-            <p class="eyebrow">Por qué elegirnos</p>
-            <h2>Porque tu problema no es creativo es estrategia.</h2>
-          </div>
+    <section class="section alt-surface brand-principles theme-burgundy" id="por-que" data-theme="burgundy">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Por qué elegirnos</p>
+          <h2>Porque tu problema no es creativo es estrategia.</h2>
+        </div>
 
-          <div class="principles-grid">
-            <article class="principle-card reveal">
-              <span class="principle-icon">✓</span>
-              <h3>Sin ruido</h3>
-              <p>Todo se explica claro: qué se hace, cuánto vale y qué cambia.</p>
-            </article>
-            <article class="principle-card reveal">
-              <span class="principle-icon">◎</span>
-              <h3>Tu cuenta, tu control</h3>
-              <p>Desde el inicio, todo queda bajo tu propiedad y criterio.</p>
-            </article>
-            <article class="principle-card reveal">
-              <span class="principle-icon">↗</span>
-              <h3>Más ventas</h3>
-              <p>No solo vemos estética. Buscamos que cada visita se vuelva cliente.</p>
-            </article>
-          </div>
+        <div class="principles-grid">
+          <article class="principle-card reveal">
+            <span class="principle-icon">✓</span>
+            <h3>Sin ruido</h3>
+            <p>Todo se explica claro: qué se hace, cuánto vale y qué cambia.</p>
+          </article>
+          <article class="principle-card reveal">
+            <span class="principle-icon">◎</span>
+            <h3>Tu cuenta, tu control</h3>
+            <p>Desde el inicio, todo queda bajo tu propiedad y criterio.</p>
+          </article>
+          <article class="principle-card reveal">
+            <span class="principle-icon">↗</span>
+            <h3>Más ventas</h3>
+            <p>No solo vemos estética. Buscamos que cada visita se vuelva cliente.</p>
+          </article>
         </div>
       </section>
 
@@ -550,96 +480,5 @@ import GoogleTagManager from '../components/GoogleTagManager.astro';
           <button class="primary-button lead-trigger" type="button">Consultar por WhatsApp</button>
         </div>
       </section>
-    </main>
-
-    <div class="lead-modal" id="lead-qualifier" aria-hidden="true">
-      <div class="lead-modal-backdrop" data-close-modal="true"></div>
-      <div class="lead-modal-panel" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
-        <button class="lead-close" type="button" aria-label="Cerrar formulario">×</button>
-
-        <div class="lead-qualifier-copy lead-modal-copy">
-          <p class="eyebrow">Diagnóstico rápido</p>
-          <h2 id="leadModalTitle">Te ayudamos a decidir qué hace falta primero.</h2>
-          <p class="lead-note">Un filtro corto para llegar con la mejor propuesta y sin perder tiempo.</p>
-        </div>
-
-        <form class="lead-form" id="leadForm">
-          <div class="lead-options" role="radiogroup" aria-label="Qué necesita">
-            <label class="option-chip">
-              <input type="radio" name="intent" value="asesoria" checked>
-              <span>Asesoría</span>
-            </label>
-            <label class="option-chip">
-              <input type="radio" name="intent" value="servicio">
-              <span>Compra de servicio</span>
-            </label>
-          </div>
-
-          <div class="lead-grid">
-            <label>
-              <span>¿De dónde eres?</span>
-              <select name="city" required>
-                <option value="">Selecciona tu ciudad</option>
-                <option>Ibagué</option>
-                <option>Tolima</option>
-                <option>Bogotá</option>
-                <option>Medellín</option>
-                <option>Otro</option>
-              </select>
-            </label>
-
-            <label>
-              <span>Tu nombre</span>
-              <input type="text" name="name" placeholder="Ej. Camila" required>
-            </label>
-          </div>
-
-          <button class="primary-button" type="submit">Continuar a WhatsApp</button>
-        </form>
-      </div>
-    </div>
-
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div>
-          <a class="brand footer-brand" href="#inicio" aria-label="Tevez Marketing logo">
-            <span class="brand-mark">T</span>
-            <span class="brand-text">
-              <strong>Tevez</strong>
-              <small>Marketing</small>
-            </span>
-          </a>
-        </div>
-
-        <div class="footer-links">
-          <div>
-            <h3>Servicios</h3>
-            <a href="#servicios">SEO y GEO</a>
-            <a href="#servicios">Google Ads</a>
-            <a href="#servicios">Publicidad social</a>
-          </div>
-          <div>
-            <h3>Empresa</h3>
-            <a href="#metodologia">Metodología</a>
-            <a href="#resultados">Casos</a>
-            <a href="#precios">Precios</a>
-          </div>
-          <div>
-            <h3>Contacto</h3>
-            <a href="tel:+573170183313">+57 317 018 3313</a>
-            <a href="https://wa.me/573170183313" target="_blank" rel="noreferrer noopener">WhatsApp</a>
-            <a href="https://www.linkedin.com/in/tevezmarketing/" target="_blank" rel="noreferrer noopener">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="container">
-          <span>© <span id="year"></span> Tévez Marketing. Todos los derechos reservados.</span>
-          <a href="https://tevezmarketing.digital/politicas-de-privacidad/" target="_blank" rel="noreferrer noopener">Política de privacidad</a>
-        </div>
-      </div>
-    </footer>
-
-    <script src="/app.js" is:inline></script>
-  </body>
-</html>
+  </main>
+</BaseLayout>
