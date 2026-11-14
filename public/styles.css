@@ -409,7 +409,7 @@ h1, h2, h3, h4, p {
   background: var(--white);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--charcoal);
 }
@@ -470,7 +470,7 @@ h1, h2, h3, h4, p {
   display: block;
   margin-bottom: 6px;
   font-size: clamp(2rem, 3vw, 2.8rem);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.02em;
   color: var(--charcoal);
 }
 
@@ -489,7 +489,7 @@ h1, h2, h3, h4, p {
 .landing-results article h3 {
   margin-bottom: 12px;
   font-size: 1.2rem;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.02em;
 }
 
 .landing-grid article p,
@@ -541,7 +541,7 @@ h1, h2, h3, h4, p {
   background: var(--gold);
   font-size: 0.66rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
@@ -568,7 +568,7 @@ h1, h2, h3, h4, p {
 .landing-cta-box h2 {
   margin: 0;
   font-size: clamp(2rem, 3vw, 2.8rem);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.02em;
   text-transform: uppercase;
   color: var(--white);
 }
@@ -645,13 +645,13 @@ h1, h2, h3, h4, p {
 
 .brand-text strong {
   font-size: 1.1rem;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
   color: var(--charcoal);
 }
 
 .brand-text small {
   font-size: 0.62rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -832,7 +832,7 @@ h1, h2, h3, h4, p {
 .lead {
   max-width: 600px;
   font-size: 1.08rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.05em;
   color: var(--white);
 }
 
@@ -867,11 +867,13 @@ h1, h2, h3, h4, p {
   color: var(--gold);
   font-size: 1.08rem;
   margin-bottom: 6px;
+  letter-spacing: 0.03em;
 }
 
 .hero-trust span {
   color: var(--white);
   font-size: 0.82rem;
+  letter-spacing: 0.02em;
 }
 
 .hero-visual {
@@ -937,14 +939,14 @@ h1, h2, h3, h4, p {
   display: block;
   color: var(--muted);
   font-size: 0.66rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .panel-head h2 {
   margin-bottom: 0;
   font-size: 1.08rem;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
   color: var(--charcoal);
 }
 
@@ -958,7 +960,7 @@ h1, h2, h3, h4, p {
   color: var(--charcoal);
   font-size: 0.6rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   animation: livePulse 2s ease-in-out infinite;
 }
@@ -994,7 +996,7 @@ h1, h2, h3, h4, p {
 
 .mini-stat strong {
   font-size: clamp(1.15rem, 2vw, 1.6rem);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.02em;
   color: var(--charcoal);
 }
 
@@ -1106,7 +1108,7 @@ h1, h2, h3, h4, p {
   white-space: nowrap;
   color: var(--terracotta);
   font-weight: 800;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 0.72rem;
 }
@@ -1368,7 +1370,7 @@ h1, h2, h3, h4, p {
   color: var(--charcoal);
   font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -1393,14 +1395,14 @@ h1, h2, h3, h4, p {
 
 .label {
   font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--muted);
 }
 
 .price-line strong {
   font-size: clamp(1.9rem, 3vw, 2.7rem);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.02em;
   color: var(--charcoal);
 }
 
@@ -1795,7 +1797,7 @@ h1, h2, h3, h4, p {
 .cta-shell h2 {
   margin: 0;
   font-size: clamp(2rem, 3vw, 2.8rem);
-  letter-spacing: -0.06em;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
   color: var(--white);
 }
@@ -1831,7 +1833,7 @@ h1, h2, h3, h4, p {
 .footer-links h3 {
   margin-bottom: 12px;
   font-size: 0.82rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--charcoal);
 }
