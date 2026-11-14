@@ -47,6 +47,11 @@ const themeMap = {
   white: '#FFFFFF'
 };
 
+const getRandomPaintColor = () => {
+  const colors = [themeMap.gold, themeMap.marfil, themeMap.charcoal];
+  return colors[Math.floor(Math.random() * colors.length)];
+};
+
 const prefetchPage = (url) => {
   if (!url || url.startsWith('#') || url.includes('whatsapp') || document.querySelector(`link[rel="prefetch"][href="${url}"]`)) return;
   const link = document.createElement('link');
@@ -165,7 +170,7 @@ const triggerSelectionAnimation = (element, onAfterAnimation = () => {}, useEarl
   element.classList.add('pulse-select');
 
   const sourceTheme = element.closest('[data-theme]')?.dataset.theme || 'gold';
-  const paintColor = themeMap[sourceTheme] || '#F4C542';
+  const paintColor = getRandomPaintColor();
 
   if (useEarlyRedirection) {
     runLiquidPaintTransition(paintColor, () => {
@@ -258,7 +263,7 @@ if (navToggle && siteNav) {
         if (!targetSection) return;
 
         const targetTheme = targetSection.dataset.theme || 'gold';
-        const paintColor = themeMap[targetTheme] || '#F4C542';
+        const paintColor = getRandomPaintColor();
 
         runLiquidPaintTransition(paintColor, () => {
           applyTheme(targetTheme);
@@ -269,7 +274,7 @@ if (navToggle && siteNav) {
 
       if (isExternal && !href.includes('whatsapp')) {
         event.preventDefault();
-        const paintColor = '#F4C542';
+        const paintColor = getRandomPaintColor();
         runLiquidPaintTransition(paintColor, () => {
           window.location.href = href;
         }, () => {
